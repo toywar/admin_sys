@@ -43,10 +43,10 @@ if (isset($_SESSION['user_id']))
             echo $row[1]. "";
         }
 }
-//else
-//{
-//	die('<h2 align=center>Error Database</h2><br/><p align=center><a href="login.php"><img src="static/img/error.jpg"></a></p>');
-//}
+else
+{
+	die('<h2 align=center>Error Database</h2><br/><p align=center><a href="login.php"><img src="static/img/error.jpg"></a></p>');
+}
 ?>
       
 </body>
