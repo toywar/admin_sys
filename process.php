@@ -108,7 +108,8 @@ if (isset($_POST['login']) && isset($_POST['password']))
         header('Location: index_closed.php');
     }
     else {
-        die('Error! Not user ID found in database!<br /><a href="login.php">Back</a>');
+        //die('Error! Not user ID found in database!<br /><a href="login.php">Back</a>');
+        header('Location: login.php');
     }
 }
 ?>

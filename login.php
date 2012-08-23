@@ -1,6 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU" xml:lang="ru-RU">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU" xml:lang="ru-RU"> -->
+<?php
+    header('Content-Type: text/html; charset=utf-8');
+?>
+<html>
 <head>
         <title>login page</title>
             <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
@@ -44,7 +48,7 @@
                     </form>      
             </div>
                 <div class="row"style="margin-top: 50px;">
-                    <div class="span6 offset3">
+                    <div class="span6 offset3">   
                         <div class="alert alert-warning">
                             <button class="close" data-dismiss="alert">×</button>
                             <strong>Для доступа в систему нажмите на кнопку "Авторизация" на панели сверху!</strong>
