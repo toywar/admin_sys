@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
 <head>
-        <title>admin_sys_test</title>
-            <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>admin_sys</title>
+<!--            <meta http-equiv="Content-type" content="text/html; charset=utf-8"/> -->
             <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css">
             <script type="text/javascript" src="static/js/jquery.min.js"></script>
             <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
@@ -50,6 +49,5 @@
                     </div>
                 </div>
         </div>
-        lo
 </body>
 </html>
