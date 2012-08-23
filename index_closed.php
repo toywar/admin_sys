@@ -6,7 +6,7 @@
 ?>
 <html>
 <head>
-        <title>admin_sys</title>
+        <title>admin_inside</title>
             <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
             <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css">
             <script type="text/javascript" src="static/js/jquery.min.js"></script>
