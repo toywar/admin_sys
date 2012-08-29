@@ -3,7 +3,70 @@
 <!-- <html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU" xml:lang="ru-RU"> -->
 <?php
     header('Content-Type: text/html; charset=utf-8');
-?>
+    session_start();
+    include ('static/db_connect.php');
+
+    if (isset($_GET['logout']))
+    {
+        if (isset($_SESSION['user_id']))
+            unset($_SESSION['user_id']);
+        setcookie('login', '', 0, "/");
+        setcookie('oassword', '', 0, "/");
+        header('Location: index.php');
+        exit;
+    }
+    
+    if (isset($_SESSION['user_id']))
+    {
+        header('Location: index_closed.php');
+        exit;
+    }
+    
+    if (!empty($_POST))
+    {
+        $login = (isset($_POST['login'])) ? mysql_real_escape_string($_POST['login']) : '';
+        
+        $query = "SELECT `salt` FROM `users` WHERE `login` = '{$login}' LIMIT 1 ";
+        $sql = mysql_query($query) or die(mysql_error());
+        
+        if (mysql_num_rows($sql) == 1)
+        {
+            $row = mysql_fetch_assoc($sql);
+            $salt = $row['salt'];
+            $password = md5(md5($_POST['password']) . $salt);
+            
+            $query = "SELECT `id` FROM `users` WHERE `login`='{$login}'
+                       AND `password`='{$password}' LIMIT 1";
+                       
+            $sql = mysql_query($query) or die(mysql_error());
+            
+            if (mysql_num_rows($sql) == 1)
+            {
+                $row = mysql_fetch_assoc($sql);
+                $_SESSION['user_id'] = $row['id'];
+                $time = 86400;
+                
+                if (isset($_POST['remember']))
+                {
+                    setcookie('login', $login, time() + $time, "/");
+                    setcookie('password', $password, time() + $time, "/");
+                }
+                header("Location: index_closed.php");
+                exit;
+            }
+            else
+            {
+                die('Non user');
+            }
+            }
+ else
+     {
+     die('Non login');
+     }
+    }
+
+    print'
+  
 <html>
 <head>
         <title>login_page</title>
@@ -41,9 +104,12 @@
                 </div>
             
             <div class="span5 offset3">
-                    <form class="well form-inline" action="process.php" method="POST">
+                    <form class="well form-inline" action="login.php" method="POST">
                         <input type="text" class="input-small" placeholder="Логин" name="login">
                         <input type="password" class="input-small" placeholder="Пароль" name="password">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember" />Запомнить
+                        </label>
                         <button type="submit" class="btn">Войти</button>
                     </form>      
             </div>
@@ -64,3 +130,7 @@
         
 </body>
 </html>
+
+';
+    
+?>

@@ -21,7 +21,7 @@
     <span class="brand" href="#">admin_sys</span>
         <ul class="nav">
             <li><a href="index.php">Главная</a></li>
-            <li><a href="login.php">Авторизация</a></li>
+           <!-- <li><a href="login.php">Авторизация</a></li> -->
             <li class="active"><a href="">Админка</a></li>
         </ul>
             </div>
